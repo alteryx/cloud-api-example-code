@@ -4,9 +4,21 @@ This repository contains examples of calling Alteryx Cloud APIs in various progr
 
 Below are the steps to run and use the examples.
 
-## 1. Set up credentials
+## 1. Download this repository
+
+Either click the "Code > Download Zip" button.
+
+![alt text](images/download.png)
+
+Or, use `git clone`.
+
+Open the files in the downloaded folder.
+
+## 2. Set up credentials
 
 ### `aac_url.txt`
+
+In the downloaded `cloud-api-example-code` folder, open `aac_url.txt`.
 
 Ensure this file has the appropriate Alteryx Cloud URL. This is the same url you see in your web browser when using Alteryx Cloud, plus "api".
 
@@ -19,6 +31,8 @@ This is one of
 Make sure to save the file.
 
 ### `client_id.txt`
+
+In the downloaded `cloud-api-example-code` folder, open `client_id.txt`.
 
 Populate this file with your application ID from Alteryx Analytics Cloud.
 
@@ -33,6 +47,8 @@ Populate this file with your application ID from Alteryx Analytics Cloud.
 1. Open the `client_id.txt` file in this repository, and paste in the copied Client ID. Be sure to save the file. ![Client ID file](images/clientIdFile.png)
 
 ### `creds.json`
+
+In the downloaded `cloud-api-example-code` folder, open `creds.json`.
 
 This file will contain authentication credentials.
 
@@ -50,7 +66,7 @@ This file will contain authentication credentials.
 \
 **Note: These credentials are sensitive, and anyone who obtains them can access your Alteryx Cloud account. It's recommended to keep them in a credentials vault rather than in plaintext.**
 
-## 2. Run a program
+## 3. Run a program
 
 Now, you are ready to run an example program. Each program will
 
@@ -60,9 +76,11 @@ Now, you are ready to run an example program. Each program will
 
 ### Running the Python Example
 
-*Ensure you have at least Python 3.10 installed on your computer.*
+Open your Terminal or command line.
 
-Make sure you are `cd`ed into this folder.
+*Ensure you have at least Python 3.10 or later installed on your computer. [Download Python here.](https://www.python.org/downloads/)*
+
+Make sure you are `cd`ed into the `cloud-api-example-code` folder.
 
 Run
 
@@ -80,9 +98,11 @@ The expected output looks like this:
 
 ### Running the JavaScript example
 
-*Ensure you have at least Node 16 installed on your computer.*
+Open your Terminal or command line.
 
-Make sure you are `cd`ed into this folder.
+*Ensure you have at least Node.js 16 or later installed on your computer. [Download Node.js here.](https://nodejs.org/en/download)*
+
+Make sure you are `cd`ed into the `cloud-api-example-code` folder.
 
 Run
 
@@ -112,7 +132,7 @@ The expected output looks like:
 
 ### Running the bash example
 
-*Ensure you have `jq` installed on your computer.*
+*Ensure you have `jq` installed on your computer. The most common way to do this on Mac is to [install Homebrew](https://brew.sh/) and then run `brew install jq`*
 
 Make sure you are `cd`ed into this folder.
 
@@ -142,6 +162,10 @@ The expected output looks like:
 ```
 
 Ensure that your client ID in `client_id.txt` is present and correct. See instructions above.
+
+### `rllib.error.URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)>`
+
+If you've installed Python by downloading it into a folder, find that installation folder (e.g. `/Applications/Python 3.10`). Inside the folder there should be a `Install Certificates.command` file. Run this file by double-clicking it.
 
 ## Next Steps
 
