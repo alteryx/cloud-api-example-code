@@ -4,15 +4,15 @@ import fs from 'fs/promises';
  * This program prints the current workspace using credentials stored in files
  */
 
-const clientIdFile = 'client_id.txt';
+const apiProjectIdFile = 'api_project_id.txt';
 const credsFile = 'creds.json'
 const aacURLFile = 'aac_url.txt'
 
 async function main() {
   const accessToken = await getAccessToken();
-  const clientId = (await fs.readFile(clientIdFile)).toString().trim();
+  const apiProjectId = (await fs.readFile(apiProjectIdFile)).toString().trim();
   const aacURL = (await fs.readFile(aacURLFile)).toString().trim();
-  console.log(await getCurrentWorkspace(aacURL, accessToken, clientId));
+  console.log(await getCurrentWorkspace(aacURL, accessToken, apiProjectId));
 }
 
 main();
@@ -58,12 +58,12 @@ async function getAccessToken() {
 /**
  * Gets the current workspace, and returns it as an object
  */
-async function getCurrentWorkspace(aacURL, accessToken, clientId) {
+async function getCurrentWorkspace(aacURL, accessToken, apiProjectId) {
 
   // These headers are necessary in every request to the AAC API
   const headers = {
     'Authorization': `Bearer ${accessToken}`,
-    'x-client-id': clientId,
+    'x-api-project-id': apiProjectId,
     'User-Agent': 'myApp', // Describe your application here
   }
 
