@@ -8,20 +8,20 @@ This program prints the current workspace using credentials stored in a file
 """
 
 """
-Get a new Client ID here: https://us1.alteryxcloud.com/cloud-portal/library/alteryx-io
+Get a new Api Project ID here: https://us1.alteryxcloud.com/cloud-portal/library/alteryx-io
 This uniquely identifies your application
 """
-client_id_file = 'client_id.txt'
+api_project_id_file = 'api_project_id.txt'
 creds_file = 'creds.json'
 aac_url_file = 'aac_url.txt'
 
 def main():
-  with open(client_id_file) as f:
-    client_id = f.read().rstrip()
+  with open(api_project_id_file) as f:
+    api_project_id = f.read().rstrip()
   access_token = get_access_token()
   with open(aac_url_file) as f:
     aac_url = f.read().rstrip()
-  print(get_current_workspace(aac_url, access_token, client_id))
+  print(get_current_workspace(aac_url, access_token, api_project_id))
 
 def get_access_token():
   """
@@ -62,15 +62,15 @@ def get_access_token():
 
   return new_creds['access_token']
   
-def get_current_workspace(aac_url, access_token, client_id):
+def get_current_workspace(aac_url, access_token, api_project_id):
   """
-  Given an access token and client id,
+  Given an access token and api project id,
   Gets the current workspace, and returns it as an object
   """
   # These headers are necessary in every request to the AAC API
   headers = {
     'Authorization': f'Bearer {access_token}',
-    'x-client-id': client_id,
+    'x-api-project-id': api_project_id,
     'User-Agent': 'my_app', # Descirbe your application here
   }
 

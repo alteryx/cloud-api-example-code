@@ -30,9 +30,9 @@ This is one of
 
 Make sure to save the file.
 
-### `client_id.txt`
+### `api_project_id.txt`
 
-In the downloaded `cloud-api-example-code` folder, open `client_id.txt`.
+In the downloaded `cloud-api-example-code` folder, open `api_project_id.txt`.
 
 Populate this file with your application ID from Alteryx Analytics Cloud.
 
@@ -42,9 +42,9 @@ Populate this file with your application ID from Alteryx Analytics Cloud.
 
 1. You should see your new project in the list of projects. ![Project listing](images/listOfProjects.png)
 
-1. Click on the project and copy the Client ID to your clipboard. ![Copying Client ID](images/copyingClientId.png)
+1. Click on the project and copy the API Project ID to your clipboard. ![Copying API Project ID](images/copyingApiProjectId.png)
 
-1. Open the `client_id.txt` file in this repository, and paste in the copied Client ID. Be sure to save the file. ![Client ID file](images/clientIdFile.png)
+1. Open the `api_project_id.txt` file in this repository, and paste in the copied API Project ID. Be sure to save the file. ![API Project ID file](images/apiProjectIdFile.png)
 
 ### `creds.json`
 
@@ -161,7 +161,7 @@ The expected output looks like:
 }
 ```
 
-Ensure that your client ID in `client_id.txt` is present and correct. See instructions above.
+Ensure that your API Project ID in `api_project_id.txt` is present and correct. See instructions above.
 
 ### `rllib.error.URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)>`
 
