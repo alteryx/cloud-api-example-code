@@ -30,22 +30,6 @@ This is one of
 
 Make sure to save the file.
 
-### `api_project_id.txt`
-
-In the downloaded `cloud-api-example-code` folder, open `api_project_id.txt`.
-
-Populate this file with your application ID from Alteryx Analytics Cloud.
-
-1. Visit <https://us1.alteryxcloud.com/cloud-portal/library/alteryx-io> (or <https://eu1.alteryxcloud.com/cloud-portal/library/alteryx-io> or <https://au1.alteryxcloud.com/cloud-portal/library/alteryx-io> for other regions). Ensure that you're logged in to the workspace in which you wish to use APIs. ![The developer console page](images/devConsole.png)
-
-1. Click the "+ New" button to create a new API Project. Enter a name for your new project, then click "Save". ![Naming the API project](images/newProject.png)
-
-1. You should see your new project in the list of projects. ![Project listing](images/listOfProjects.png)
-
-1. Click on the project and copy the API Project ID to your clipboard. ![Copying API Project ID](images/copyingApiProjectId.png)
-
-1. Open the `api_project_id.txt` file in this repository, and paste in the copied API Project ID. Be sure to save the file. ![API Project ID file](images/apiProjectIdFile.png)
-
 ### `creds.json`
 
 In the downloaded `cloud-api-example-code` folder, open `creds.json`.
@@ -149,19 +133,6 @@ The expected output looks like:
 ```
 
 ## Troubleshooting
-
-### `Invalid ApiKey`
-
-```json
-{
-  fault: {
-    faultstring: 'Invalid ApiKey',
-    detail: { errorcode: 'oauth.v2.InvalidApiKey' }
-  }
-}
-```
-
-Ensure that your API Project ID in `api_project_id.txt` is present and correct. See instructions above.
 
 ### `rllib.error.URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)>`
 
