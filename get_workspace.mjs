@@ -4,15 +4,13 @@ import fs from 'fs/promises';
  * This program prints the current workspace using credentials stored in files
  */
 
-const apiProjectIdFile = 'api_project_id.txt';
 const credsFile = 'creds.json'
 const aacURLFile = 'aac_url.txt'
 
 async function main() {
   const accessToken = await getAccessToken();
-  const apiProjectId = (await fs.readFile(apiProjectIdFile)).toString().trim();
   const aacURL = (await fs.readFile(aacURLFile)).toString().trim();
-  console.log(await getCurrentWorkspace(aacURL, accessToken, apiProjectId));
+  console.log(await getCurrentWorkspace(aacURL, accessToken));
 }
 
 main();
@@ -26,13 +24,13 @@ main();
  */
 async function getAccessToken() {
   // Load the credentials from their JSON file
-  const oldCreds = JSON.parse(await fs.readFile(credsFile)); 
+  const oldCreds = JSON.parse(await fs.readFile(credsFile));
 
   // Get the second part of the access token, which is its payload
-  const payload = oldCreds.access_token.split('.')[1] 
+  const payload = oldCreds.access_token.split('.')[1]
 
   // Decode the base64-encoded access token
-  const info = JSON.parse(atob(payload)) 
+  const info = JSON.parse(atob(payload))
 
   // Create the body for the refresh request
   const body = new URLSearchParams({
@@ -58,12 +56,11 @@ async function getAccessToken() {
 /**
  * Gets the current workspace, and returns it as an object
  */
-async function getCurrentWorkspace(aacURL, accessToken, apiProjectId) {
+async function getCurrentWorkspace(aacURL, accessToken) {
 
   // These headers are necessary in every request to the AAC API
   const headers = {
     'Authorization': `Bearer ${accessToken}`,
-    'x-api-project-id': apiProjectId,
     'User-Agent': 'myApp', // Describe your application here
   }
 

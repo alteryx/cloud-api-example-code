@@ -4,16 +4,14 @@
 
 # Requirements: jq, curl
 
-api_project_id_file="api_project_id.txt"
 creds_file="creds.json"
 aac_url_file="aac_url.txt"
 
 # Main function
 main() {
-  api_project_id=$(cat $api_project_id_file | xargs)
   access_token=$(get_access_token)
   aac_url=$(cat $aac_url_file | xargs)
-  echo $(get_current_workspace "$access_token" "$api_project_id" "$aac_url")
+  echo $(get_current_workspace "$access_token" "$aac_url")
 }
 
 # Function to get the access token (with refresh logic)
@@ -49,13 +47,11 @@ get_access_token() {
 get_current_workspace() {
 
   access_token="$1"
-  api_project_id="$2"
-  aac_url="$3"
+  aac_url="$2"
 
   # Make the request to get the current workspace using curl
   response=$(curl -s -X GET "$aac_url/iam/v1/workspaces/current" \
     -H "Authorization: Bearer $access_token" \
-    -H "x-api-project-id: $api_project_id" \
     -H "User-Agent: myApp")  # Describe your application here
 
   # Output the response (current workspace)
