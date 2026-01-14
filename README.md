@@ -56,7 +56,7 @@ Now, you are ready to run an example program. Each program will
 
 1. Ensure the tokens are up to date. The "access token" has a limited duration where it can be used for API requests. When the access token expires it will no longer work for API requests, and the program must acquire a new access token from the server. This is what the refresh token is for. The program exchanges the refresh token for a new access token and refresh token. Once a refresh token has been used, it is no longer valid. The program writes the new access and refresh tokens back to the creds.json file. Since all programs share the file, you can alternate between running multiple programs.
 
-1. Call the `/iam/v1/workspaces/current` API, and print the result. This gets information about your current workspace. Try modifying this call in each program to call a different API. You can see available APIs here: <https://core-apigee-upper-produs1.apigee.io/>
+1. Call the `/iam/v1/workspaces/current` API, and print the result. This gets information about your current workspace. Try modifying this call in each program to call a different API. You can see available APIs here: <https://api-docs.us1.alteryxcloud.com>
 
 ### Running the Python Example
 
